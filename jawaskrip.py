@@ -70,7 +70,7 @@ def lex(filecontents):
             else:
                 tokens.append("LOWEQUALS")
             tok = ""
-        elif tok == "=" and state == 0:
+        elif tok == ">=" and state == 0:
             if expr != "" and isexpr == 0:
                 tokens.append("NUM:" + expr)
                 expr = ""
@@ -88,13 +88,40 @@ def lex(filecontents):
             var += tok
             tok = ""
         elif varStarted == 1:
-            if tok == "<" or tok == ">":
+            if tok == "<E" or tok == "F>":
+                # if tok == "<EOF>":
                 if var != "":
                     tokens.append("VAR:" + var)
                     var = ""
                     varStarted = 0
                     tok = ""
             var += tok
+            tok = ""
+        elif tok == "kirang saking" and state == 0:
+            if expr != "" and isexpr == 0:
+                tokens.append("NUM:" + expr)
+                expr = ""
+            if var != "":
+                tokens.append("VAR:" + var)
+                var = ""
+                varStarted = 0
+            if tokens[-1] == "LOW":
+                tokens[-1] = "LW"
+            else:
+                tokens.append("LOW")
+            tok = ""
+        elif tok == "langkung saking" and state == 0:
+            if expr != "" and isexpr == 0:
+                tokens.append("NUM:" + expr)
+                expr = ""
+            if var != "":
+                tokens.append("VAR:" + var)
+                var = ""
+                varStarted = 0
+            if tokens[-1] == "GREATHER":
+                tokens[-1] = "GT"
+            else:
+                tokens.append("GREATHER")
             tok = ""
         elif tok == "SERAT" or tok == "serat":
             tokens.append("PRINT")
@@ -230,14 +257,26 @@ def parse(toks):
 
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM GREATEQUALS NUM MILA":
 
-            if toks[i+1][4:] == toks[i+3][4:]:
+            if toks[i+1][4:] >= toks[i+3][4:]:
                 i += 5
             else:
                 return 0
 
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM LOWEQUALS NUM MILA":
 
-            if toks[i+1][4:] == toks[i+3][4:]:
+            if toks[i+1][4:] <= toks[i+3][4:]:
+                i += 5
+            else:
+                return 0
+        elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM LOW NUM MILA":
+
+            if toks[i+1][4:] < toks[i+3][4:]:
+                i += 5
+            else:
+                return 0
+        elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM GREATHER NUM MILA":
+
+            if toks[i+1][4:] > toks[i+3][4:]:
                 i += 5
             else:
                 return 0

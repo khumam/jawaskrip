@@ -1,9 +1,6 @@
 @nama = "umam"
 @umur = 19
 
-serat @nama
-serat @umur
-
-menawi 3 <= 1 mila
+menawi 1 langkung saking 4 mila
     serat @umur
 bibarmenawi
