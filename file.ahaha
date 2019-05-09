@@ -1,0 +1,9 @@
+@nama = "umam"
+@umur = 19
+
+serat @nama
+serat @umur
+
+menawi 3 <= 1 mila
+    serat @umur
+bibarmenawi

@@ -7,9 +7,12 @@ symbols = {}
 
 
 def open_file(filename):
-    data = open(filename, "r").read()
-    data += "<EOF>"
-    return data
+    if(".jws" in filename):
+        data = open(filename, "r").read()
+        data += "<EOF>"
+        return data
+    else:
+        exit()
 
 
 def lex(filecontents):
