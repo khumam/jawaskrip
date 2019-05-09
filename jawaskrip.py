@@ -54,6 +54,32 @@ def lex(filecontents):
             else:
                 tokens.append("EQUALS")
             tok = ""
+        elif tok == "<=" and state == 0:
+            if expr != "" and isexpr == 0:
+                tokens.append("NUM:" + expr)
+                expr = ""
+            if var != "":
+                tokens.append("VAR:" + var)
+                var = ""
+                varStarted = 0
+            if tokens[-1] == "LOWEQUALS":
+                tokens[-1] = "LWEQ"
+            else:
+                tokens.append("LOWEQUALS")
+            tok = ""
+        elif tok == "=" and state == 0:
+            if expr != "" and isexpr == 0:
+                tokens.append("NUM:" + expr)
+                expr = ""
+            if var != "":
+                tokens.append("VAR:" + var)
+                var = ""
+                varStarted = 0
+            if tokens[-1] == "GREATEQUALS":
+                tokens[-1] = "GTEQ"
+            else:
+                tokens.append("GREATEQUALS")
+            tok = ""
         elif tok == "@" and state == 0:
             varStarted = 1
             var += tok
@@ -193,6 +219,20 @@ def parse(toks):
             getInput(toks[i+1][7:], toks[i+2][4:])
             i += 3
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM EQEQ NUM MILA":
+
+            if toks[i+1][4:] == toks[i+3][4:]:
+                i += 5
+            else:
+                return 0
+
+        elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM GREATEQUALS NUM MILA":
+
+            if toks[i+1][4:] == toks[i+3][4:]:
+                i += 5
+            else:
+                return 0
+
+        elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM LOWEQUALS NUM MILA":
 
             if toks[i+1][4:] == toks[i+3][4:]:
                 i += 5
