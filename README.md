@@ -59,6 +59,17 @@ menawi 1 == 1 mila
 bibarmenawi
 ```
 
+if statement yang tersedia
+
+```
+'sama dengan' gunakan ==
+'kurang dari sama dengan' gunakan <=
+'lebih dari sama dengan' gunakan >=
+'kurang dari' gunakan 'kirang saking'
+'lebih dari' gunakan 'langkung saking'
+'tidak sama dengan' gunakan !=
+```
+
 # BUGS
 
 1. Belum bisa menggunakan `<` dan `>` sebagai statement
