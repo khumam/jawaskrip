@@ -42,11 +42,17 @@ def lex(filecontents):
                 varStarted = 0
             tok = ""
         elif tok == "=" and state == 0:
+            if expr != "" and isexpr == 0:
+                tokens.append("NUM:" + expr)
+                expr = ""
             if var != "":
                 tokens.append("VAR:" + var)
                 var = ""
                 varStarted = 0
-            tokens.append("EQUALS")
+            if tokens[-1] == "EQUALS":
+                tokens[-1] = "EQEQ"
+            else:
+                tokens.append("EQUALS")
             tok = ""
         elif tok == "@" and state == 0:
             varStarted = 1
@@ -67,12 +73,26 @@ def lex(filecontents):
         elif tok == "LEBET" or tok == "lebet":
             tokens.append("LEBET")
             tok = ""
+        elif tok == "BIBARMENAWI" or tok == "bibarmenawi":
+            tokens.append("BIBARMENAWI")
+            tok = ""
+        elif tok == "MENAWI" or tok == "menawi":
+            tokens.append("MENAWI")
+            tok = ""
+        elif tok == "MILA" or tok == "mila":
+            if expr != "" and isexpr == 0:
+                tokens.append("NUM:" + expr)
+                expr = ""
+            tokens.append("MILA")
+            tok = ""
         elif tok == "0" or tok == "1" or tok == "2" or tok == "3" or tok == "4" or tok == "5" or tok == "6" or tok == "7" or tok == "8" or tok == "9":
             expr += tok
             tok = ""
         elif tok == "+" or tok == "/" or tok == "-" or tok == "*" or tok == "(" or tok == ")" or tok == "%":
             isexpr = 1
             expr += tok
+            tok = ""
+        elif tok == "\t":
             tok = ""
         elif tok == "\"" or tok == " \"":
             if state == 0:
@@ -140,13 +160,16 @@ def getVariabel(varname):
 
 
 def getInput(string, varname):
-    print(string)
+    i = input(string[1:-1])
+    symbols[varname] = "STRING:\"" + i + "\""
 
 
 def parse(toks):
     i = 0
     while(i < len(toks)):
-        if toks[i] + " " + toks[i+1][0:6] == "PRINT STRING" or toks[i] + " " + toks[i+1][0:3] == "PRINT NUM" or toks[i] + " " + toks[i+1][0:4] == "PRINT EXPR" or toks[i] + " " + toks[i+1][0:3] == "PRINT VAR":
+        if toks[i] == "BIBARMENAWI":
+            i += 1
+        elif toks[i] + " " + toks[i+1][0:6] == "PRINT STRING" or toks[i] + " " + toks[i+1][0:3] == "PRINT NUM" or toks[i] + " " + toks[i+1][0:4] == "PRINT EXPR" or toks[i] + " " + toks[i+1][0:3] == "PRINT VAR":
             if toks[i+1][0:6] == "STRING":
                 doPrint(toks[i+1])
             elif toks[i+1][0:3] == "NUM":
@@ -167,7 +190,14 @@ def parse(toks):
                 doAssign(toks[i], getVariabel(toks[i+2]))
             i += 3
         elif toks[i] + " " + toks[i+1][0:6] + " " + toks[i+2][0:3] == "LEBET STRING VAR":
-            getInput(toks[i+1][6:], toks[i+2][4:])
+            getInput(toks[i+1][7:], toks[i+2][4:])
+            i += 3
+        elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM EQEQ NUM MILA":
+
+            if toks[i+1][4:] == toks[i+3][4:]:
+                i += 5
+            else:
+                return 0
 
 
 def run():
