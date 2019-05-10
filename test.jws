@@ -1,6 +1,1 @@
-@nama = "umam"
-@umur = 19
-
-menawi 1 langkung saking 4 mila
-    serat @umur
-bibarmenawi
+serat "hello" . "hello"
