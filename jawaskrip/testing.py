@@ -92,7 +92,7 @@ def lex(filecontents):
             var += tok
             tok = ""
         elif varStarted == 1:
-            if tok == "<E" or tok == "F>":
+            if tok == "<" or tok == ">":
                 # if tok == "<EOF>":
                 if var != "":
                     tokens.append("VAR:" + var)
@@ -101,7 +101,7 @@ def lex(filecontents):
                     tok = ""
             var += tok
             tok = ""
-        elif tok == "kirang" and state == 0:
+        elif tok == "kirang sangking" and state == 0:
             if expr != "" and isexpr == 0:
                 tokens.append("NUM:" + expr)
                 expr = ""
@@ -114,7 +114,7 @@ def lex(filecontents):
             else:
                 tokens.append("LOW")
             tok = ""
-        elif tok == "langkung" and state == 0:
+        elif tok == "langkung sangking" and state == 0:
             if expr != "" and isexpr == 0:
                 tokens.append("NUM:" + expr)
                 expr = ""

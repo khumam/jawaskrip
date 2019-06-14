@@ -1,1 +1,2 @@
-serat "hello" . "hello"
+@bagi = 345
+serat @bagi

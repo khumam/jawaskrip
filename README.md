@@ -65,14 +65,32 @@ if statement yang tersedia
 'sama dengan' gunakan ==
 'kurang dari sama dengan' gunakan <=
 'lebih dari sama dengan' gunakan >=
-'kurang dari' gunakan 'kirang saking'
-'lebih dari' gunakan 'langkung saking'
+'kurang dari' gunakan 'kirang'
+'lebih dari' gunakan 'langkung'
 'tidak sama dengan' gunakan !=
+```
+
+# Looping
+Saat ini looping belum sempurna masih dalam tahap pengembangan
+
+```
+kangge 0 ngantos 3
+    serat "i love you 3000"
+sampung
+```
+
+Hasil
+
+```
+i love you 3000
+i love you 3000
+i love you 3000
 ```
 
 # BUGS
 
 1. Belum bisa menggunakan `<` dan `>` sebagai statement
+    - Fix dengan mengganti < dengan kirang dan > langkung
 2. Belum bisa melakukan perhitungan dua data dari variabel
 Contoh
 
@@ -81,5 +99,4 @@ Contoh
 @b = 4
 serat @a + @b
 ```
-
-3. Belum bisa menggabungkan beberapa variabel ke dalam satu variabel
+3. Looping belum sempurna
