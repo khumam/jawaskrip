@@ -93,7 +93,7 @@ Saat ini looping belum sempurna masih dalam tahap pengembangan
 ```
 kangge 0 ngantos 3
     serat "i love you 3000"
-sampung
+sampun
 ```
 
 Hasil
