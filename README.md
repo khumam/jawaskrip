@@ -73,7 +73,7 @@ Contoh
 ```
 menawi 1 == 1 mila
     serat "Captain America"
-bibarmenawi
+sampun
 ```
 
 if statement yang tersedia
