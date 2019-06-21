@@ -11,11 +11,12 @@ Setelah itu masuk ke dalam folder `Jawaskrip`
 Buatlah sebuah file dengan ekstensi `.jws`
 
 # Run
-Untuk me-run program, ketikkan di terminal / command prompt
+Untuk me-run program, di folder jawasckrip, ketikkan di terminal / command prompt
 
 ```
 python jawaskrip.py nama_program.jws
 ```
+Pastikan sudah menginstall python.
 
 # DOCS
 
