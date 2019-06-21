@@ -1,5 +1,5 @@
 # JawaSkrip
-Jawascript  adalah sebuah bahasa esolang berbasis python yang perintahnya menggunakan bahasa jawa. Tujuan dari pembuatan esolang berbahasa jawa ini adalah untuk mengenalkan bahasa jawa dan menjaga bahasa jawa khususnya bahasa jawa krama ingil. Manfaat yang diberikan, selain melestarikan bahasa daerah, juga dapat membuat kita belajar bahasa pemrograman.
+Jawaskrip adalah sebuah bahasa esolang berbasis python yang perintahnya menggunakan bahasa jawa. Tujuan dari pembuatan esolang berbahasa jawa ini adalah untuk mengenalkan bahasa jawa dan menjaga bahasa jawa khususnya bahasa jawa krama ingil. Manfaat yang diberikan, selain melestarikan bahasa daerah, juga dapat membuat kita belajar bahasa pemrograman.
 
 # Instalasi
 Untuk menginstall silahkan download repositori ini atau clone
