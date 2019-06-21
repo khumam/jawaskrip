@@ -1,5 +1,21 @@
 # JawaSkrip
-Tugas Akhir dari mata kuliah Teknik Kompilasi
+Jawascript  adalah sebuah bahasa esolang berbasis python yang perintahnya menggunakan bahasa jawa. Tujuan dari pembuatan esolang berbahasa jawa ini adalah untuk mengenalkan bahasa jawa dan menjaga bahasa jawa khususnya bahasa jawa krama ingil. Manfaat yang diberikan, selain melestarikan bahasa daerah, juga dapat membuat kita belajar bahasa pemrograman.
+
+# Instalasi
+Untuk menginstall silahkan download repositori ini atau clone
+
+```
+https://github.com/sahmura/jawaskrip.git
+```
+Setelah itu masuk ke dalam folder `Jawaskrip`
+Buatlah sebuah file dengan ekstensi `.jws`
+
+# Run
+Untuk me-run program, ketikkan di terminal / command prompt
+
+```
+python jawaskrip.py nama_program.jws
+```
 
 # DOCS
 
