@@ -105,10 +105,7 @@ i love you 3000
 ```
 
 # BUGS
-
-1. Belum bisa menggunakan `<` dan `>` sebagai statement
-    - Fix dengan mengganti < dengan kirang dan > langkung
-2. Belum bisa melakukan perhitungan dua data dari variabel
+1. Belum bisa melakukan perhitungan dua data dari variabel
 Contoh
 
 ```
@@ -116,4 +113,5 @@ Contoh
 @b = 4
 serat @a + @b
 ```
-3. Looping belum sempurna
+2. Looping belum sempurna
+3. Tidak ada fungsi
