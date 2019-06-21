@@ -36,7 +36,7 @@ def doPrint(toPrint, sambung):
         toPrint = evaluationExpr(toPrint[5:])
 
     if(sambung == 1):
-        print(toPrint + ' ', end='')
+        print(toPrint + ' ')
     else:
         print(toPrint)
 
