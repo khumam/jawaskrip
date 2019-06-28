@@ -5,6 +5,8 @@ from jawaskrip_interpt import doAssign
 from jawaskrip_interpt import doSambung
 from jawaskrip_interpt import getInput
 from jawaskrip_interpt import getVariabel
+num_stack = []
+symbols = {}
 
 
 def parse(toks):
@@ -55,8 +57,8 @@ def parse(toks):
             elif "BENTEN" in toks:
                 bentenPos = toks.index('BENTEN')
                 i += bentenPos + 1
-            else:
-                return 0
+            # else:
+            #     return 0
 
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM GREATEQUALS NUM MILA":
 
@@ -65,8 +67,8 @@ def parse(toks):
             elif "BENTEN" in toks:
                 bentenPos = toks.index('BENTEN')
                 i += bentenPos + 1
-            else:
-                return 0
+            # else:
+            #     return 0
 
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM LOWEQUALS NUM MILA":
 
@@ -75,8 +77,8 @@ def parse(toks):
             elif "BENTEN" in toks:
                 bentenPos = toks.index('BENTEN')
                 i += bentenPos + 1
-            else:
-                return 0
+            # else:
+            #     return 0
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM LOW NUM MILA":
 
             if toks[i+1][4:] < toks[i+3][4:]:
@@ -84,8 +86,8 @@ def parse(toks):
             elif "BENTEN" in toks:
                 bentenPos = toks.index('BENTEN')
                 i += bentenPos + 1
-            else:
-                return 0
+            # else:
+            #     return 0
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] + " " + toks[i+4] == "MENAWI NUM GREATHER NUM MILA":
 
             if toks[i+1][4:] > toks[i+3][4:]:
@@ -93,8 +95,8 @@ def parse(toks):
             elif "BENTEN" in toks:
                 bentenPos = toks.index('BENTEN')
                 i += bentenPos + 1
-            else:
-                return 0
+            # else:
+            #     return 0
         elif toks[i] + " " + toks[i+1][0:3] + " " + toks[i+2] + " " + toks[i+3][0:3] == "KANGGE NUM NGANTOS NUM":
 
             awal = int(toks[i+1][4:])
